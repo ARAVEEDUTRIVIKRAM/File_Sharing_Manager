@@ -134,7 +134,6 @@ The system was manually tested using **Postman** and browser-based workflows.
 ## 🌐 Live Demo
 
 🔗 [https://file-sharing-manager.onrender.com/files](https://file-sharing-manager.onrender.com/files)
-⚠️ Hosted on Render free tier — initial request may take 10–20 seconds due to cold start
 
 ---
 
