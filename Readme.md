@@ -1,51 +1,168 @@
-# 🔐 Secure File Sharing Manager 
+# 🔐 Secure File Sharing Manager
 
-A secure file-sharing web application built with **Java**, **Spring Boot**, **React.js**, and **PostgreSQL**, allowing users to upload, download, and share files with **JWT-based authentication**.
+## Problem Statement
+
+File sharing is deceptively simple but risky. Many applications allow users to upload and download files, yet fail to handle **authentication, access control, token expiry, invalid requests, and error scenarios** correctly. This often leads to broken links, unauthorized access, and poor reliability.
+
+This project was built to solve that problem by implementing a **secure, token-based file sharing system** where access is explicitly controlled, validated, and traceable through backend APIs.
 
 ---
 
-## 🌐 Live Demo
-🔗 https://file-sharing-manager.onrender.com 
-⚠️ *Note: This app is hosted on Render (free tier). It may take **10–20 seconds** to wake up.*
+## 🧠 System Overview
+
+The Secure File Sharing Manager is a **full-stack web application** that enables authenticated users to upload, manage, and securely share files through REST APIs.
+
+The system emphasizes:
+
+* Authentication and authorization correctness
+* Backend-driven validation and error handling
+* Clear separation of frontend and backend responsibilities
+
+---
+
+## 🏗️ Architecture
+
+### Frontend
+
+* Built using **React.js** with a component-based structure
+* Communicates with backend services using REST APIs
+* Handles authentication state and attaches JWT tokens to protected requests
+* Displays server-side validation and error messages to users
+
+### Backend
+
+* Implemented using **Spring Boot** following a layered architecture:
+
+  * **Controller layer** for request handling
+  * **Service layer** for business logic
+  * **Repository layer** using JPA/Hibernate
+* JWT-based authentication and authorization
+* Centralized exception handling for consistent API responses
+
+### Database
+
+* **PostgreSQL** database for storing user and file metadata
+* ORM handled using JPA/Hibernate
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Frontend: React.js, HTML5, CSS3, JavaScript  
-- Backend: Java, Spring Boot, REST APIs, JWT  
-- Database: PostgreSQL 
-- Tools: Postman, Git, GitHub, VS Code, IntelliJ  
-- Deployment: Render (for backend & frontend)
+**Backend**
+
+* Java
+* Spring Boot
+* REST APIs
+* JWT Authentication
+* JPA / Hibernate
+
+**Frontend**
+
+* React.js
+* HTML5
+* CSS3
+* JavaScript
+
+**Database**
+
+* PostgreSQL
+
+**Tools & Platforms**
+
+* Git & GitHub
+* Postman
+* IntelliJ IDEA
+
+**Deployment**
+
+* Hosted on Render (free tier)
 
 ---
 
-## 🔑 Features
+## 🔑 Core Features
 
-- ✅ User registration & login with JWT authentication  
-- ✅ Upload, download, delete, and share files securely  
-- ✅ Token-based session validation  
-- ✅ Responsive UI built with HTML/CSS  
-- ✅ Error handling and validations  
-- ✅ Integrated frontend with backend APIs  
-- ✅ Clean code following SDLC principles
+* User registration and login using JWT-based authentication
+* Secure file upload, download, deletion, and sharing
+* Token-based validation for protected endpoints
+* Centralized error handling and request validation
+* Responsive frontend integrated with backend APIs
 
+---
 
-# Screenshots Of the Project:
+## 🔁 Application Flow
 
-<img width="1920" height="1080" alt="Screenshot (1855)" src="https://github.com/user-attachments/assets/d0078d00-460d-4e14-aff8-7dc9b947877d" />
+1. User registers or logs in to obtain a JWT token
+2. Frontend stores the token and attaches it to subsequent API requests
+3. Backend validates the token using authentication filters
+4. Authorized requests are processed by service-layer logic
+5. File metadata is stored in the database and files are served securely
+6. Errors and invalid access attempts are handled centrally
 
-<img width="1920" height="1080" alt="Screenshot (1856)" src="https://github.com/user-attachments/assets/be351e0a-0cb8-4c37-9f70-44388fcc4853" />
+---
 
-<img width="1920" height="1080" alt="Screenshot (1857)" src="https://github.com/user-attachments/assets/af337b56-d7da-4833-b628-a0ed39b5071d" />
+## 🧪 Testing & Validation
 
-<img width="1920" height="1080" alt="Screenshot (1859)" src="https://github.com/user-attachments/assets/d2c4380b-9d24-4fc0-9ceb-d1813af8571e" />
+The system was manually tested using **Postman** and browser-based workflows.
 
-<img width="1920" height="1080" alt="Screenshot (1858)" src="https://github.com/user-attachments/assets/f14b0630-b0a7-4608-9595-f8563980bf6c" />
+### Validated Scenarios
 
-<img width="1920" height="1080" alt="Screenshot (1860)" src="https://github.com/user-attachments/assets/87262779-0de1-4f80-8631-1bc9f750f090" />
+* Successful and failed authentication attempts
+* Access to protected APIs with valid and invalid JWT tokens
+* Unauthorized file access attempts
+* Invalid file identifiers and malformed requests
+* File upload and download validation
+* Correct HTTP status codes for error scenarios
 
-<img width="1920" height="1080" alt="Screenshot (1861)" src="https://github.com/user-attachments/assets/3938a5d2-690b-4534-bced-59c40d8d6558" />
+### Error Handling Strategy
 
-<img width="1920" height="1080" alt="Screenshot (1862)" src="https://github.com/user-attachments/assets/7bd79c43-c3f4-4ce8-9a05-a1fa3dd4c50b" />
+* Centralized exception handler for uniform API responses
+* Proper HTTP status codes for authentication, validation, and server errors
+* Clear error messages returned to the frontend
 
+---
+
+## ⚠️ Edge Cases Considered
+
+* Expired or invalid authentication tokens
+* Accessing files without authorization
+* Non-existent or deleted file references
+* Concurrent file access requests
+* Invalid or missing request parameters
+
+---
+
+## 🌐 Live Demo
+
+🔗 [https://file-sharing-manager.onrender.com/files](https://file-sharing-manager.onrender.com/files)
+⚠️ Hosted on Render free tier — initial request may take 10–20 seconds due to cold start
+
+---
+
+## 📸 Screenshots
+
+*(Screenshots are included below to demonstrate the user interface and workflows.)*
+
+---
+
+## 📌 Known Limitations
+
+* Free-tier hosting causes cold-start latency
+* No automated unit or integration test suite implemented
+* File storage handled at application level rather than external object storage
+
+---
+
+## 🔮 Future Improvements
+
+* Add automated unit and integration testing
+* Integrate cloud object storage (e.g., AWS S3)
+* Implement role-based access control
+* Add audit logging and rate limiting
+* Introduce CI/CD pipeline for automated builds and deployments
+
+---
+
+## 👨‍💻 Author
+
+**Araveedu Trivikram**
+GitHub: [https://github.com/ARAVEEDUTRIVIKRAM](https://github.com/ARAVEEDUTRIVIKRAM)
