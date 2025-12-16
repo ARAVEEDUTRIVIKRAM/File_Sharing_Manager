@@ -141,6 +141,12 @@ The system was manually tested using **Postman** and browser-based workflows.
 
 *(Screenshots are included below to demonstrate the user interface and workflows.)*
 
+<img width="1920" height="971" alt="Screenshot (2386)" src="https://github.com/user-attachments/assets/442f762d-c2d2-46ec-a3c5-380d5d68154e" />
+
+<img width="1920" height="969" alt="Screenshot (2387)" src="https://github.com/user-attachments/assets/a3dde8d6-a87d-4fd3-9829-27c0de5555aa" />
+
+<img width="1920" height="973" alt="Screenshot (2388)" src="https://github.com/user-attachments/assets/ff798cb3-bffa-4a75-8725-ad8f793d1385" />
+
 ---
 
 ## 📌 Known Limitations
