@@ -1,142 +1,194 @@
 # 🔐 Secure File Sharing Manager
 
-## Problem Statement
+A production-ready Full Stack Web Application that enables authenticated users to securely upload, manage, download, and share files using JWT-based authentication and REST APIs.
 
-File sharing is deceptively simple but risky. Many applications allow users to upload and download files, yet fail to handle **authentication, access control, token expiry, invalid requests, and error scenarios** correctly. This often leads to broken links, unauthorized access, and poor reliability.
-
-This project was built to solve that problem by implementing a **secure, token-based file sharing system** where access is explicitly controlled, validated, and traceable through backend APIs.
+Built using Spring Boot, React, PostgreSQL, Spring Security, JWT Authentication, Docker, and RESTful APIs.
 
 ---
 
-## 🧠 System Overview
+## 🚀 Live Demo
 
-The Secure File Sharing Manager is a **full-stack web application** that enables authenticated users to upload, manage, and securely share files through REST APIs.
+Live URL:
+https://file-sharing-manager.onrender.com/files
 
-The system emphasizes:
-
-* Authentication and authorization correctness
-* Backend-driven validation and error handling
-* Clear separation of frontend and backend responsibilities
+GitHub Repository:
+https://github.com/ARAVEEDUTRIVIKRAM/File_Sharing_Manager
 
 ---
 
-## 🏗️ Architecture
+## Features
 
-### Frontend
+✔ JWT Authentication
 
-* Built using **React.js** with a component-based structure
-* Communicates with backend services using REST APIs
-* Handles authentication state and attaches JWT tokens to protected requests
-* Displays server-side validation and error messages to users
+✔ Secure File Upload
+
+✔ File Download
+
+✔ File Sharing
+
+✔ File Deletion
+
+✔ Protected REST APIs
+
+✔ Spring Security
+
+✔ Centralized Exception Handling
+
+✔ PostgreSQL Integration
+
+✔ Responsive React UI
+
+✔ Docker Support
+
+---
+
+## Tech Stack
 
 ### Backend
 
-* Implemented using **Spring Boot** following a layered architecture:
+- Java
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- Spring Data JPA
+- Hibernate
+- PostgreSQL
+- Maven
 
-  * **Controller layer** for request handling
-  * **Service layer** for business logic
-  * **Repository layer** using JPA/Hibernate
-* JWT-based authentication and authorization
-* Centralized exception handling for consistent API responses
+### Frontend
 
-### Database
+- React
+- HTML
+- CSS
+- JavaScript
 
-* **PostgreSQL** database for storing user and file metadata
-* ORM handled using JPA/Hibernate
+### DevOps
 
----
+- Docker
+- Render
 
-## 🛠️ Tech Stack
+### Tools
 
-**Backend**
-
-* Java
-* Spring Boot
-* REST APIs
-* JWT Authentication
-* JPA / Hibernate
-
-**Frontend**
-
-* React.js
-* HTML5
-* CSS3
-* JavaScript
-
-**Database**
-
-* PostgreSQL
-
-**Tools & Platforms**
-
-* Git & GitHub
-* Postman
-* IntelliJ IDEA
-
-**Deployment**
-
-* Hosted on Render (free tier)
+- Git
+- GitHub
+- IntelliJ IDEA
+- Postman
 
 ---
 
-## 🔑 Core Features
+## Project Architecture
 
-* User registration and login using JWT-based authentication
-* Secure file upload, download, deletion, and sharing
-* Token-based validation for protected endpoints
-* Centralized error handling and request validation
-* Responsive frontend integrated with backend APIs
+```text
+React Frontend
+        │
+        ▼
+REST APIs
+        │
+        ▼
+Spring Boot Backend
+        │
+        ▼
+Spring Security
+        │
+        ▼
+JWT Authentication
+        │
+        ▼
+Service Layer
+        │
+        ▼
+Repository Layer
+        │
+        ▼
+PostgreSQL Database
 
+```
+
+# Folder Structure
+
+```text
+File_Sharing_Manager
+│
+├── src
+│   └── main
+│       ├── java
+│       │   └── com
+│       │       └── company
+│       │           └── fileSharingManagement
+│       │               ├── configuration
+│       │               ├── controller
+│       │               ├── entity
+│       │               ├── exception
+│       │               ├── model
+│       │               ├── repository
+│       │               ├── service
+│       │               └── FileSharingManagerApplication
+│       │
+│       └── resources
+│           └── application.properties
+│
+├── Dockerfile
+├── pom.xml
+└── README.md
+```
+
+
+# Application Flow
+
+User Login
+
+↓
+
+JWT Token Generated
+
+↓
+
+Frontend Stores Token
+
+↓
+
+Protected REST API Call
+
+↓
+
+Spring Security Validation
+
+↓
+
+Business Logic
+
+↓
+
+Database Operations
+
+↓
+
+Response Returned
 ---
 
-## 🔁 Application Flow
 
-1. User registers or logs in to obtain a JWT token
-2. Frontend stores the token and attaches it to subsequent API requests
-3. Backend validates the token using authentication filters
-4. Authorized requests are processed by service-layer logic
-5. File metadata is stored in the database and files are served securely
-6. Errors and invalid access attempts are handled centrally
+# Security
 
----
+- JWT Authentication
+- Spring Security
+- Stateless Authentication
+- Protected REST APIs
+- Authorization Filters
+- Password Encryption
+- Centralized Exception Handling
 
-## 🧪 Testing & Validation
 
-The system was manually tested using **Postman** and browser-based workflows.
+  # REST APIs
 
-### Validated Scenarios
+| Module | Sample Endpoints |
+|---------|------------------|
+| Authentication | `/login` |
+| Files | `/upload` |
+| Files | `/download/{id}` |
+| Files | `/delete/{id}` |
+| Files | `/share/{id}` |
 
-* Successful and failed authentication attempts
-* Access to protected APIs with valid and invalid JWT tokens
-* Unauthorized file access attempts
-* Invalid file identifiers and malformed requests
-* File upload and download validation
-* Correct HTTP status codes for error scenarios
-
-### Error Handling Strategy
-
-* Centralized exception handler for uniform API responses
-* Proper HTTP status codes for authentication, validation, and server errors
-* Clear error messages returned to the frontend
-
----
-
-## ⚠️ Edge Cases Considered
-
-* Expired or invalid authentication tokens
-* Accessing files without authorization
-* Non-existent or deleted file references
-* Concurrent file access requests
-* Invalid or missing request parameters
-
----
-
-## 🌐 Live Demo
-
-🔗 [https://file-sharing-manager.onrender.com/files](https://file-sharing-manager.onrender.com/files)
-
----
-
+  
 ## 📸 Screenshots
 
 *(Screenshots are included below to demonstrate the user interface and workflows.)*
@@ -149,25 +201,48 @@ The system was manually tested using **Postman** and browser-based workflows.
 
 ---
 
-## 📌 Known Limitations
 
-* Free-tier hosting causes cold-start latency
-* No automated unit or integration test suite implemented
-* File storage handled at application level rather than external object storage
+# Installation
 
----
+git clone https://github.com/ARAVEEDUTRIVIKRAM/File_Sharing_Manager.git
 
-## 🔮 Future Improvements
+cd File_Sharing_Manager
 
-* Add automated unit and integration testing
-* Integrate cloud object storage (e.g., AWS S3)
-* Implement role-based access control
-* Add audit logging and rate limiting
-* Introduce CI/CD pipeline for automated builds and deployments
+mvn clean install
 
----
+mvn spring-boot:run
 
-## 👨‍💻 Author
+
+Testing
+
+Validated using
+- Postman
+- Browser Testing
+- JWT Authentication
+- Unauthorized Requests
+- File Upload
+- File Download
+- Exception Handling
+
+
+# Known Limitations
+
+- Free-tier hosting cold starts
+- No cloud object storage
+- Manual testing only
+
+
+# Future Enhancements
+
+- AWS S3 Integration
+- Role-Based Access Control
+- Email Sharing
+- Audit Logs
+- CI/CD Pipeline
+- Unit & Integration Testing
+
+
+# Author 
 
 **Araveedu Trivikram**
-GitHub: [https://github.com/ARAVEEDUTRIVIKRAM](https://github.com/ARAVEEDUTRIVIKRAM)
+LinkedIn: https://www.linkedin.com/in/araveedu-trivikram-88b2462bb/
